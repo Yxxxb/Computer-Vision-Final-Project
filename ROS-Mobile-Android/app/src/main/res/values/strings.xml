@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">ROS-Mobile</string>
+
+    <string name="add_widget">Add widget</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="add_widgets_to_your_configuration">Add one or more widgets to this configuration.</string>
+    <string name="delete">delete</string>
+    <string name="widget_undo">%1$s removed from config!</string>
+    <string name="add_configuration">Add configuration</string>
+
+    <!-- Master view -->
+    <string name="master_ip_hint">Master URL</string>
+    <string name="master_port_hint">Master port</string>
+    <string name="need_help_button">Need help connecting?</string>
+    <string name="connection_checklist_title">Have you checked before connecting: </string>
+    <string-array name="connection_checklist">
+        <item>Valid and active WIFI connection?</item>
+        <item>Correct IP and PORT of the ROS Master entered?</item>
+        <item>Is this device in the same network as the Master system?</item>
+        <item>Changed the environment variables of the Master system?</item>
+        <item>Master is running?</item>
+        <item>Correct topic names subscribed / published?</item>
+    </string-array>
+
+    <!-- Buttons -->
+    <string name="button_connect">Connect</string>
+    <string name="button_send">Send</string>
+    <string name="viz_options_open_content">Show viz options</string>
+
+    <!-- SSH Connection -->
+    <string name="ssh_connection">SSH Connection Data</string>
+    <string name="ssh_terminal">SSH Terminal</string>
+    <string name="ip_address_hint">IP Address</string>
+    <string name="port_hint">Port</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="terminal_hint">Terminal Input</string>
+
+    <!-- Default config -->
+    <string name="default_config_name">New Config</string>
+    <string name="default_master_ip">123.456.789.01</string>
+    <string name="default_master_ticker_title">Default ticker title</string>
+    <string name="default_master_notification_title">Default title</string>
+
+    <!--Default SSH Settings -->
+    <string name="default_ip_address">192.168.1.1</string>
+    <string name="default_port">22</string>
+    <string name="default_username">pi</string>
+    <string name="default_password">raspberry</string>
+
+    <!-- Preference key -->
+    <string name="preference_file_key">prefs_configs</string>
+    <string name="new_config_name">New config name</string>
+    <string name="ok">OK</string>
+    <string name="button_disconnect">Disconnect</string>
+    <string name="really_delete">Do you really want to delete the current configuration permanently?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="rename_config">Rename Config</string>
+    <string name="rename_widget">Rename Widget</string>
+    <string name="no_config">No config</string>
+
+    <!-- Details -->
+    <string name="widget_list_type">(%s)</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="pending">Pending</string>
+
+    <!-- SSH Autocompletion -->
+    <string-array name="ssh_autocmpletion">
+        <item>rostopic list </item>
+        <item>rostopic echo </item>
+        <item>rostopic info </item>
+        <item>rostopic hz </item>
+        <item>rosnode info </item>
+        <item>rosnode list </item>
+        <item>roslaunch </item>
+        <item>roscore</item>
+    </string-array>
+
+</resources>

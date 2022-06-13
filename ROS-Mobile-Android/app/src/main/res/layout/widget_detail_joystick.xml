@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        layout="@layout/detail_publisher_widget"
+        android:id="@+id/layout_publisher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X-Axis"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_publisher" />
+
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Mapping"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/xDirSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:entries="@array/joystick_twist_dir"
+        android:foregroundTintMode="add"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintEnd_toStartOf="@+id/xAxisSpinner"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+    <Spinner
+        android:id="@+id/xAxisSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/joystick_twist_axis"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Scale"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <com.schneewittchen.rosandroid.ui.views.ScaleView
+        android:id="@+id/xAxisScale"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/xScaleLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="3"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="-1.0"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/xAxisScale"
+        app:layout_constraintStart_toStartOf="@+id/xAxisScale"
+        app:layout_constraintTop_toBottomOf="@+id/xAxisScale" />
+
+    <TextView
+        android:id="@+id/xScaleMiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/xScaleRight"
+        app:layout_constraintStart_toEndOf="@+id/xScaleLeft"
+        app:layout_constraintTop_toBottomOf="@+id/xAxisScale" />
+
+    <EditText
+        android:id="@+id/xScaleRight"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="3"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="1.0"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/xScaleLeft"
+        app:layout_constraintEnd_toEndOf="@+id/xAxisScale"
+        app:layout_constraintStart_toEndOf="@+id/xAxisScale"
+        app:layout_constraintTop_toBottomOf="@+id/xAxisScale" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Y-Axis"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xScaleLeft" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Mapping"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Spinner
+        android:id="@+id/yDirSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_weight="1"
+        android:entries="@array/joystick_twist_dir"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintEnd_toStartOf="@+id/yAxisSpinner"
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+    <Spinner
+        android:id="@+id/yAxisSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:entries="@array/joystick_twist_axis"
+        app:layout_constraintBottom_toBottomOf="@+id/yDirSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/yDirSpinner" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Scale"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <com.schneewittchen.rosandroid.ui.views.ScaleView
+        android:id="@+id/xAxisScale2"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <EditText
+        android:id="@+id/yScaleLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="3"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="-1.0"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/xAxisScale2"
+        app:layout_constraintStart_toStartOf="@+id/xAxisScale2"
+        app:layout_constraintTop_toBottomOf="@+id/xAxisScale2" />
+
+    <TextView
+        android:id="@+id/yScaleMiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/xScaleRight"
+        app:layout_constraintStart_toEndOf="@+id/xScaleLeft"
+        app:layout_constraintTop_toBottomOf="@+id/xAxisScale2" />
+
+    <EditText
+        android:id="@+id/yScaleRight"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="3"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="-1.0"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/xAxisScale2"
+        app:layout_constraintStart_toEndOf="@+id/xAxisScale2"
+        app:layout_constraintTop_toBottomOf="@+id/xAxisScale2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
