@@ -28,6 +28,14 @@ import com.schneewittchen.rosandroid.databinding.FragmentSshBinding;
 import com.schneewittchen.rosandroid.viewmodel.SshViewModel;
 
 import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import android.util.Log;
 
 
 /**
@@ -51,14 +59,41 @@ public class SshFragment extends Fragment implements TextView.OnEditorActionList
     private AutoCompleteTextView terminalEditText;
     private Button connectButton;
     private FloatingActionButton sendButton;
+    private FloatingActionButton linkButton;
     private FloatingActionButton abortButton;
+    private FloatingActionButton shutOffButton;
     private boolean connected;
+    private static final int TCP_SERVER_PORT = 8250;
+    private static final String host = "192.168.0.110";
 
 
     public static SshFragment newInstance() {
         return new SshFragment();
     }
 
+    public void runTcpClient(String m){
+        try {
+            Socket s = new Socket(host, TCP_SERVER_PORT);//注意host改成你服务器的hostname或IP地址
+            BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
+            //send output msg
+            //            String outMsg = "TCP connecting to " + TCP_SERVER_PORT + System.getProperty("line.separator");
+            String outMsg = m;
+            out.write(outMsg);//发送数据
+            out.flush();
+            Log.i("TcpClient", "sent: " + outMsg);
+            //accept server response
+            String inMsg = in.readLine() + System.getProperty("line.separator");//得到服务器返回的数据
+
+            Log.i("TcpClient", "received: " + inMsg);
+            //close connection
+            s.close();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Nullable
     @Override
@@ -100,6 +135,8 @@ public class SshFragment extends Fragment implements TextView.OnEditorActionList
         connectButton = view.findViewById(R.id.sshConnectButton);
         sendButton = view.findViewById(R.id.sshSendButton);
         abortButton = view.findViewById(R.id.sshAbortButton);
+        linkButton = view.findViewById(R.id.sshConnectButton1);
+        shutOffButton = view.findViewById(R.id.sshConnectButton3);
 
         System.out.println("terminal txt1");
         System.out.println(terminalEditText.getText().toString());
@@ -126,6 +163,25 @@ public class SshFragment extends Fragment implements TextView.OnEditorActionList
             binding.portEditText.setText(Integer.toString(ssh.port));
             binding.usernameEditText.setText(ssh.username);
             binding.passwordEditText.setText(ssh.password);
+        });
+
+        linkButton.setOnClickListener(v -> {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    runTcpClient("1");
+                }
+            }).start();
+        });
+
+        shutOffButton.setOnClickListener(v -> {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    runTcpClient("2");
+                }
+            }).start();
+
         });
 
         // Connect Buttons
