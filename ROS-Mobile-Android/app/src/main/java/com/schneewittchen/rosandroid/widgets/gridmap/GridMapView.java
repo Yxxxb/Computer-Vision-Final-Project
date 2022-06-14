@@ -1,6 +1,7 @@
 package com.schneewittchen.rosandroid.widgets.gridmap;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.schneewittchen.rosandroid.ui.opengl.visualisation.ROSColor;
 import com.schneewittchen.rosandroid.ui.opengl.visualisation.TextureBitmap;
