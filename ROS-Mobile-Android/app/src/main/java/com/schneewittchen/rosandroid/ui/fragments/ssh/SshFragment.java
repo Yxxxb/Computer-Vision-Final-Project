@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.schneewittchen.rosandroid.R;
@@ -59,9 +60,9 @@ public class SshFragment extends Fragment implements TextView.OnEditorActionList
     private AutoCompleteTextView terminalEditText;
     private Button connectButton;
     private FloatingActionButton sendButton;
-    private FloatingActionButton linkButton;
+    private MaterialButton linkButton;
     private FloatingActionButton abortButton;
-    private FloatingActionButton shutOffButton;
+    private MaterialButton shutOffButton;
     private boolean connected;
     private static final int TCP_SERVER_PORT = 8250;
     private static final String host = "192.168.0.110";
