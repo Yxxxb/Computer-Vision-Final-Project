@@ -78,14 +78,17 @@ public class VizFragment extends Fragment implements DataListener, WidgetChangeL
         mViewModel = new ViewModelProvider(this).get(VizViewModel.class);
 
         mViewModel.getCurrentWidgets().observe(getViewLifecycleOwner(), widgetEntities -> {
+            System.out.println("**************************************************************************1");
             widgetViewGroupview.setWidgets(widgetEntities);
         });
 
         mViewModel.getData().observe(getViewLifecycleOwner(), data -> {
+            System.out.println("**************************************************************************2");
             widgetViewGroupview.onNewData(data);
         });
 
         vizEditModeSwitch.setOnCheckedChangeListener((CompoundButton buttonView, boolean isChecked) -> {
+            System.out.println("**************************************************************************3");
             widgetViewGroupview.setVizEditMode(isChecked);
         });
 

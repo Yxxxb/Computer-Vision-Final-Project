@@ -156,8 +156,11 @@ public class WidgetViewGroup extends ViewGroup {
         }
     }
 
+//    仅初始化调用 更新未调用
     private void positionChild(int i) {
         final View child = getChildAt(i);
+
+        System.out.println("-----------------------------------1");
 
         // Check if view is visible
         if(child.getVisibility() == GONE)
@@ -177,6 +180,7 @@ public class WidgetViewGroup extends ViewGroup {
 
     @Override
     public void onDraw(Canvas canvas) {
+        System.out.println("-----------------------------------2");
         float startX = getPaddingLeft();
         float endX = getWidth() - this.getPaddingRight();
         float startY = getPaddingTop();
@@ -201,16 +205,22 @@ public class WidgetViewGroup extends ViewGroup {
         }
     }
 
-
     public void informDataChange(BaseData data) {
         if (dataListener != null) {
             dataListener.onNewWidgetData(data);
         }
     }
 
+//    ROS数据传输函数
     public void onNewData(RosData data) {
+        System.out.println(data.getMessage());
+        System.out.println(data.getTopic());
+
         Message message = data.getMessage();
         Topic topic = data.getTopic();
+
+//        child始终只有1个
+        System.out.println("childcountis:" + this.getChildCount());
 
         for(int i = 0; i < this.getChildCount(); i++) {
             View view = this.getChildAt(i);
@@ -218,9 +228,11 @@ public class WidgetViewGroup extends ViewGroup {
             if(!(view instanceof ISubscriberView)) continue;
 
             if(view instanceof WidgetGroupView) {
+                System.out.println("##################################1");
                 ((WidgetGroupView)view).onNewData(data);
 
             } else {
+                System.out.println("##################################2");
                 IBaseView baseView = (IBaseView) view;
 
                 if (baseView.getWidgetEntity().topic.equals(topic)){
@@ -230,6 +242,7 @@ public class WidgetViewGroup extends ViewGroup {
         }
     }
 
+//    初始化第一步？？
     public void setWidgets(List<BaseEntity> newWidgets) {
         boolean changes = false;
 
@@ -381,6 +394,7 @@ public class WidgetViewGroup extends ViewGroup {
     }
 
     public void setVizEditMode(boolean enabled) {
+        System.out.println("**************************************************************************");
         this.vizEditMode = enabled;
         for (int i = 0; i < getChildCount(); ++i) {
             WidgetView widgetView = (WidgetView)getChildAt(i);

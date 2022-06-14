@@ -135,9 +135,13 @@ public class VisualizationView extends GLSurfaceView {
         Topic topic = data.getTopic();
         boolean dirtyView = false;
 
+        System.out.println(topic.name);
+        System.out.println(topic.type);
+
         // Forward message to sub layers
         for(LayerView layer: getLayers()) {
             if (layer instanceof ISubscriberView) {
+                System.out.println("********************onnewdata");
                 if (layer.getWidgetEntity().topic.equals(topic)) {
                     ((ISubscriberView)layer).onNewMessage(message);
                     dirtyView = true;
@@ -146,6 +150,7 @@ public class VisualizationView extends GLSurfaceView {
         }
 
         if (dirtyView) {
+            System.out.println("********************render");
             this.requestRender();
         }
     }
