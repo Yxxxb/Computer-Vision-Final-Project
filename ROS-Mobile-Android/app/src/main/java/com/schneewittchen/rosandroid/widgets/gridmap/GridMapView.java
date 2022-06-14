@@ -61,6 +61,7 @@ public class GridMapView extends SubscriberLayerView {
 
     @Override
     public void draw(VisualizationView view, GL10 gl) {
+        System.out.println("***************************gridmapdraw");
         if (previousGl != gl) {
             for (Tile tile : tiles) {
                 tile.clearHandle();
@@ -73,9 +74,13 @@ public class GridMapView extends SubscriberLayerView {
         }
     }
 
+//    此处为处理data的地方
     @Override
     public void onNewMessage(Message message) {
+        System.out.println("***************************gridmapmessage");
         OccupancyGrid grid = (OccupancyGrid) message;
+
+        System.out.println(grid.getData());
 
         final float resolution = grid.getInfo().getResolution();
         final int width = grid.getInfo().getWidth();

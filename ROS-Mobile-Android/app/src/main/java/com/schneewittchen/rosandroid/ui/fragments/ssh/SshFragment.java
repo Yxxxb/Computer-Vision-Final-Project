@@ -65,7 +65,7 @@ public class SshFragment extends Fragment implements TextView.OnEditorActionList
     private MaterialButton shutOffButton;
     private boolean connected;
     private static final int TCP_SERVER_PORT = 8250;
-    private static final String host = "192.168.0.110";
+    private static final String host = "192.168.0.104";
 
 
     public static SshFragment newInstance() {
@@ -207,7 +207,7 @@ public class SshFragment extends Fragment implements TextView.OnEditorActionList
             System.out.println("terminal txt2");
 
 //            mViewModel.sendViaSSH("cd catkin_ws\nsource install_isolated/setup.bash\nroslaunch cartographer_ros demo_revo_lds.launch bag_filename:=${HOME}/Downloads/cartographer_paper_revo_lds.bag");
-            mViewModel.sendViaSSH("gnome-terminal");
+            mViewModel.sendViaSSH(message);
 //            mViewModel.sendViaSSH(message);
 //            mViewModel.sendViaSSH("roslaunch cartographer_ros demo_revo_lds.launch bag_filename:=${HOME}/Downloads/cartographer_paper_revo_lds.bag");
 //            mViewModel.sendViaSSH("roslaunch cartographer_ros demo_revo_lds.launch bag_filename:=${HOME}/Downloads/cartographer_paper_revo_lds.bag");

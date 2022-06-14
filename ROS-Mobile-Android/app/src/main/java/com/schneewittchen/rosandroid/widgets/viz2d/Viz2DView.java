@@ -77,15 +77,18 @@ public class Viz2DView extends WidgetGroupView {
     }
 
 
+//    仅执行一次
     @Override
     public void onDraw(Canvas canvas) {
+        System.out.println("oooooooooooooooooooooooooooooooooooo1");
         canvas.drawPaint(paintBackground);
         super.onDraw(canvas);
     }
 
-
+//    每次均被调用
     @Override
     public void onNewData(RosData data) {
+        System.out.println("oooooooooooooooooooooooooooooooooooo2");
         layerView.onNewData(data);
     }
 
