@@ -25,12 +25,15 @@
 
     <!-- Buttons -->
     <string name="button_connect">Connect</string>
+    <string name="button1">Link ROS</string>
+    <string name="button2">DELONG</string>
+    <string name="button3">Shut Off</string>
     <string name="button_send">Send</string>
     <string name="viz_options_open_content">Show viz options</string>
 
     <!-- SSH Connection -->
     <string name="ssh_connection">SSH Connection Data</string>
-    <string name="ssh_terminal">SSH Terminal</string>
+    <string name="ssh_terminal">Terminal</string>
     <string name="ip_address_hint">IP Address</string>
     <string name="port_hint">Port</string>
     <string name="username_hint">Username</string>

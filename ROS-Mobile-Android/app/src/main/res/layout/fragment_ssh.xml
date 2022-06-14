@@ -10,7 +10,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="-8dp">
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
@@ -213,17 +216,46 @@
 
         </androidx.cardview.widget.CardView>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/sshAbortButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/colorAccent"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="@+id/terminal_inputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/terminal_inputLayout"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_abort_btn" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/sshSendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/colorAccent"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="@+id/terminal_inputLayout"
+            app:layout_constraintEnd_toStartOf="@id/sshAbortButton"
+            app:layout_constraintTop_toTopOf="@+id/terminal_inputLayout"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_send" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/terminal_inputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
             android:layout_height="55dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="256dp"
             android:hint="@string/terminal_hint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/sshSendButton"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -232,32 +264,63 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:imeOptions="actionSend"
-                android:inputType="textNoSuggestions" />
+                android:inputType="textNoSuggestions"
+                tools:layout_editor_absoluteX="26dp"
+                tools:layout_editor_absoluteY="508dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/sshSendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:backgroundTint="@color/colorAccent"
-            app:fabSize="mini"
-            app:layout_constraintBottom_toBottomOf="@+id/terminal_inputLayout"
-            app:layout_constraintEnd_toStartOf="@id/sshAbortButton"
-            app:layout_constraintTop_toTopOf="@+id/terminal_inputLayout"
-            app:srcCompat="@drawable/ic_send" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/sshAbortButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:backgroundTint="@color/colorAccent"
-            app:fabSize="mini"
-            app:layout_constraintBottom_toBottomOf="@+id/terminal_inputLayout"
+
+
+        <Button
+            android:id="@+id/sshConnectButton1"
+            android:layout_width="228dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="434dp"
+            android:layout_marginEnd="92dp"
+            android:text="@string/button1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/terminal_inputLayout"
-            app:srcCompat="@drawable/ic_abort_btn" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/sshConnectButton2"
+            android:layout_width="228dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="498dp"
+            android:layout_marginEnd="92dp"
+            android:text="@string/button2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/sshConnectButton3"
+            android:layout_width="228dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="562dp"
+            android:layout_marginEnd="92dp"
+            android:text="@string/button3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        <Button-->
+<!--            android:id="@+id/sshConnectButton3"-->
+<!--            android:layout_width="116dp"-->
+<!--            android:layout_height="46dp"-->
+<!--            android:layout_marginTop="544dp"-->
+<!--            android:layout_marginEnd="160dp"-->
+<!--            android:text="@string/button2"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/sshConnectButton4"-->
+<!--            android:layout_width="116dp"-->
+<!--            android:layout_height="46dp"-->
+<!--            android:layout_marginTop="564dp"-->
+<!--            android:layout_marginEnd="44dp"-->
+<!--            android:text="@string/button3"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
