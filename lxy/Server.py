@@ -7,7 +7,7 @@ def getipaddrs(hostname):#只是为了显示IP，仅仅测试一下
 
 	return [x[4][0] for x in result]
 def main():
-	host = '192.168.0.108'#为空代表为本地host
+	host = '192.168.0.110'#为空代表为本地host
 
 	hostname = socket.gethostname()
 
@@ -37,14 +37,11 @@ def main():
 
 		print('Received', repr(data))
 		data = repr(data)[1:]
-		print('data', data)
-		if str(data) == '1':
-			print(111)
-		elif str(data) == '2':
+		if int(data[1]) == 1:
+			os.system('roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloads/cartographer_paper_deutsches_museum.bag')
+		elif int(data[1]) == 2:
 			print(222)
-		#os.system('roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloads/cartographer_paper_deutsches_museum.bag')
 		
-
 		conn.close()
 if __name__ == '__main__':
 	main()
